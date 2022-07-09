@@ -1,0 +1,27 @@
+{
+  "name": "express-api-auth-with-jwt",
+  "version": "1.0.0",
+  "description": "Learn to build an Express.js API Authentication with JWT",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/reyhanfajarn13/Node.js-Express-API-Auth-with-JWT.git"
+  },
+  "author": "Reyhan Fajar",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/reyhanfajarn13/Node.js-Express-API-Auth-with-JWT/issues"
+  },
+  "homepage": "https://github.com/reyhanfajarn13/Node.js-Express-API-Auth-with-JWT#readme",
+  "dependencies": {
+    "dotenv": "^16.0.1",
+    "express": "^4.18.1",
+    "mongoose": "^6.4.3"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.19"
+  }
+}
