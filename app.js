@@ -3,6 +3,7 @@ require('dotenv').config()
 const express = require('express')
 const app = express()
 const authRouter = require('./routes/auth')
+const postRouter = require('./routes/posts')
 const mongoose = require('mongoose')
 
 //DATABASE CONNECTED
@@ -19,6 +20,7 @@ app.use(express.json());
 
 //Route Middleware
 app.use('/api/user',authRouter);
+app.use('/posts', postRouter);
 
 
 
