@@ -18,6 +18,7 @@ router.post('/register', async (req,res) => {
     if(emailExist) return res.status(400).send('Email already exist');
 
     //HASH THE PASSWORD 
+    
     const salt = await bcrypt.genSalt(10); // this code will be adding 10 random code to the password
     const hashPassword = await bcrypt.hash(req.body.password, salt);
 

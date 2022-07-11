@@ -1,6 +1,6 @@
 const router = require('express').Router()
 const verify = require('./verifyToken')
-const User = require('../models/user')
+
 
 router.get('/', verify, (req,res) => {
     const userId = req.user._id
