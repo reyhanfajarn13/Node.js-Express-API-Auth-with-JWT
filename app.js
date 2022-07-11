@@ -2,21 +2,23 @@ require('dotenv').config()
 
 const express = require('express')
 const app = express()
-
-//const mongoose = require('mongoose')
+const authRouter = require('./routes/auth')
+const mongoose = require('mongoose')
 
 //DATABASE CONNECTED
-//mongoose.connect(process.env.DATABASE_URL, {useNewUrlParser: true, useUnifiedTopology:true})
+mongoose.connect(process.env.DATABASE_CONNECT, 
+    {useNewUrlParser: true, useUnifiedTopology:true},
+    () => console.log('connected to db!'))
 
 //const db = mongoose.connection
 
 //db.on('error',(err) => console.log(err))
 //db.once('open',() => console.log('Database Connect!'))
+app.use(express.json());
 
-const authRouter = require('./routes/auth')
 
-//
-app.use('/api/user',authRouter)
+//Route Middleware
+app.use('/api/user',authRouter);
 
 
 
