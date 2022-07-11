@@ -6,7 +6,7 @@ const userModel = require('../models/user')
 //VALIDATION
 const Joi = require('@hapi/joi');
 
-const schema ={
+const schema = Joi.object({
     name: Joi.string()
         .min(6)
         .required(),
@@ -17,13 +17,14 @@ const schema ={
     password: Joi.string()
         .min(6)
         .required()
-}
+})
 
 router.post('/register', async (req,res) => {
     //VALIDATE DATA BEFORE HAVE A USER
-    const validation = Joi.validate(req.body, schema);
+    const {error} = schema.validate(req.body);
+    if(error) return res.status(400).send(error.details[0].message);
 
-   const user = new userModel({
+  const user = new userModel({
         name: req.body.name,
         email: req.body.email,
         password: req.body.password
@@ -36,5 +37,6 @@ router.post('/register', async (req,res) => {
         res.status(400).send({message : err.message})
    }
 })
+
 
 module.exports = router
